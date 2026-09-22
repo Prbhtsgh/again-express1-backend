@@ -195,9 +195,7 @@ app.get("/api/summary", (req, res) => {
         balances[members[i].id] = 0;
     }
     for(let i = 0; i < expenses.length; i++){
-        /* in the below line I did || 0 for the case if one deletes a member from the members array but is still in
-        the expenses array then for the expenses array the value will be undefined so it will become equal to zero*/
-        balances[expenses[i].paidBy] = balances[expenses[i].paidBy || 0] + expenses[i].amount;
+        balances[expenses[i].paidBy] = balances[expenses[i].paidBy] + expenses[i].amount;
         const share = expenses[i].amount / expenses[i].participants.length;
 
         for(let j = 0; j < participants.length; j++){
