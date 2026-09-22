@@ -64,7 +64,7 @@ app.post("/api/members", (req, res) => {
     if(!name || name.trim == ""){
         return res.status(400).json({ error: 'Name is required and cannot be blank' });
     }
-    for(let i = 0; i < data.members.length; i++){
+    for(let i = 0; i < members.length; i++){
         if(members[i].name.toLowerCase() === name.toLowerCase()){
             return res.status(409).json({ error: 'A member with that name already exists' })
         }
